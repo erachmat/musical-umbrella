@@ -10,9 +10,10 @@ Setiap praktikum memiliki pola yang sama:
 
 | Praktikum | Revisi modul | Berkas SQL |
 |---|---|---|
+| 2. Membuat Tabel Toko Saku | `praktikum-02/revisi-modul-p02.docx` | `P02_cek_awal.sql`, `P02_cek_mandiri.sql` (tanpa pemulihan: kondisi awal hanya database kosong) |
 | 3. DDL, Tipe Data, dan Kunci | `praktikum-03/revisi-modul-p03.docx` | `P03_cek_awal.sql`, `P03_pulihkan_p2.sql`, `P03_cek_mandiri.sql` |
 | 4. Constraint dan Foreign Key | `praktikum-04/revisi-modul-p04.docx` | `P04_cek_awal.sql`, `P04_pulihkan_p3.sql`, `P04_cek_mandiri.sql` |
 
-Sebelum dibagikan, sesuaikan baris bertanda `SESUAIKAN P2` (nama produk, harga, panjang `category_name`) dengan modul praktikum 2.
+Semua berkas siap dibagikan. Mahasiswa hanya perlu mengganti nama database pada baris `USE`.
 
-Semua berkas sudah diuji pada MariaDB 10.11.14, termasuk alur lengkap: pulihkan P2 → praktikum 3 → cek awal praktikum 4.
+Semua berkas sudah diuji pada MariaDB 10.11.14 dengan perintah persis dari modul, berurutan dari praktikum 2 sampai 4. Data hasil berkas pemulihan juga lolos cek mandiri praktikum sebelumnya.

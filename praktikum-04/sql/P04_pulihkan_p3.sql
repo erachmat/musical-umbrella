@@ -21,10 +21,9 @@
 --   2. Tempel seluruh isi berkas ke tab SQL phpMyAdmin, lalu klik Go.
 --   3. Jalankan lagi P04_cek_awal.sql.
 --
--- CATATAN DOSEN: struktur products dan customers serta data pelanggan
--- mengikuti modul praktikum 3. Panjang category_name, nama produk, dan
--- harga P01-P03 berasal dari praktikum 2 dan masih berupa contoh;
--- sesuaikan dengan modul praktikum 2 sebelum dibagikan (tanda: SESUAIKAN P2).
+-- Struktur dan data categories serta products sama dengan modul
+-- praktikum 2. Tabel customers, data pelanggan, dan indeks unik sku sama
+-- dengan modul praktikum 3.
 -- =====================================================================
 
 USE pbd_latihan_p01;  -- GANTI dengan nama database latihanmu
@@ -34,7 +33,7 @@ USE pbd_latihan_p01;  -- GANTI dengan nama database latihanmu
 -- ---------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS categories (
   category_id   INT UNSIGNED  NOT NULL,
-  category_name VARCHAR(50)   NOT NULL,  -- SESUAIKAN P2
+  category_name VARCHAR(60)   NOT NULL,
   PRIMARY KEY (category_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
@@ -69,15 +68,15 @@ SELECT 2, 'Roti' FROM DUAL
 WHERE NOT EXISTS (SELECT 1 FROM categories WHERE category_id = 2);
 
 INSERT INTO products (product_id, sku, product_name, category_id, unit_price, stock_qty)
-SELECT 1, 'P01', 'Air Mineral 600 ml', 1, 3500.00, 20 FROM DUAL  -- SESUAIKAN P2: nama, harga
+SELECT 1, 'P01', 'Teh Botol',    1, 5000.00, 20 FROM DUAL
 WHERE NOT EXISTS (SELECT 1 FROM products WHERE product_id = 1 OR sku = 'P01');
 
 INSERT INTO products (product_id, sku, product_name, category_id, unit_price, stock_qty)
-SELECT 2, 'P02', 'Teh Manis Botol', 1, 5000.00, 15 FROM DUAL  -- SESUAIKAN P2: nama, harga
+SELECT 2, 'P02', 'Roti Cokelat', 2, 8000.00, 15 FROM DUAL
 WHERE NOT EXISTS (SELECT 1 FROM products WHERE product_id = 2 OR sku = 'P02');
 
 INSERT INTO products (product_id, sku, product_name, category_id, unit_price, stock_qty)
-SELECT 3, 'P03', 'Roti Tawar', 2, 15000.00, 30 FROM DUAL  -- SESUAIKAN P2: nama, harga
+SELECT 3, 'P03', 'Air Mineral',  1, 4000.00, 30 FROM DUAL
 WHERE NOT EXISTS (SELECT 1 FROM products WHERE product_id = 3 OR sku = 'P03');
 
 -- Data pelanggan sama dengan langkah D praktikum 3

@@ -20,7 +20,7 @@ Masalahnya sama dengan modul praktikum 4. Tabel alur kegiatan (bagian 4) menjadw
 
 ## Hal yang perlu dosen sesuaikan sebelum membagikan berkas
 
-- Di `P03_pulihkan_p2.sql`, panjang `category_name`, nama produk, dan harga P01–P03 berasal dari praktikum 2 dan masih berupa contoh. Baris yang perlu disesuaikan ditandai `SESUAIKAN P2`. Struktur `products` sudah mengikuti Gambar 1 modul praktikum 3.
+- `P03_pulihkan_p2.sql` memakai struktur dan data yang sama dengan langkah B dan C modul praktikum 2 (`category_name VARCHAR(60)`; Teh Botol 5000.00, Roti Cokelat 8000.00, Air Mineral 4000.00). Berkas siap dibagikan tanpa penyesuaian.
 - Ketiga berkas sudah diuji pada MariaDB 10.11.14. Alur lengkap juga sudah diuji: pulihkan P2 → langkah B–D praktikum 3 → `P04_cek_awal.sql` semua OK.
 
 # Bagian 2. Teks pengganti untuk modul
@@ -108,7 +108,7 @@ Tambahkan paragraf berikut di awal langkah E, sebelum blok pemeriksaan akhir:
 
 ## Sebelum hari praktikum
 
-- Sesuaikan baris bertanda `SESUAIKAN P2` di `P03_pulihkan_p2.sql`, lalu letakkan ketiga berkas SQL di folder bersama lab, LMS, atau flashdisk.
+- Letakkan ketiga berkas SQL di folder bersama lab, LMS, atau flashdisk.
 - Opsional: rekam layar 5–8 menit saat dosen mengerjakan langkah B sampai D, lalu unggah ke LMS.
 
 ## Tampilan di proyektor pada setiap tahap
