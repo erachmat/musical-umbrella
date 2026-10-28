@@ -1,13 +1,18 @@
 # DM099 Perancangan Basis Data: bahan pendukung praktikum
 
-## Praktikum 4: Constraint dan Foreign Key
+Setiap praktikum memiliki pola yang sama:
 
-| Berkas | Untuk | Isi |
+1. Jadwal ditulis untuk waktu efektif 75 menit (07.15–08.30), bukan 100 menit.
+2. `cek_awal`: pemeriksaan awal yang dijalankan mahasiswa saat absensi.
+3. `pulihkan`: memulihkan kondisi akhir praktikum sebelumnya tanpa DROP/DELETE/UPDATE, aman dijalankan ulang.
+4. `cek_mandiri`: pemeriksaan akhir OK/BELUM beserta tindakan, menggantikan antrean "minta dosen memeriksa".
+5. Pertanyaan konsep dan refleksi dikerjakan di rumah.
+
+| Praktikum | Revisi modul | Berkas SQL |
 |---|---|---|
-| `praktikum-04/revisi-modul-p04.md` / `.docx` | Dosen | Jadwal 75 menit efektif, teks pengganti per bagian modul, panduan sesi dan teks proyektor |
-| `praktikum-04/sql/P04_cek_awal.sql` | Mahasiswa | Langkah A + B dalam satu berkas, dijalankan saat absensi, hasil STATUS OK/BELUM |
-| `praktikum-04/sql/P04_pulihkan_p3.sql` | Mahasiswa | Memulihkan tabel dan data praktikum 3 tanpa DROP/DELETE/UPDATE, aman dijalankan ulang |
-| `praktikum-04/sql/P04_cek_mandiri.sql` | Mahasiswa | Pemeriksaan akhir 8 butir OK/BELUM beserta tindakan |
+| 3. DDL, Tipe Data, dan Kunci | `praktikum-03/revisi-modul-p03.docx` | `P03_cek_awal.sql`, `P03_pulihkan_p2.sql`, `P03_cek_mandiri.sql` |
+| 4. Constraint dan Foreign Key | `praktikum-04/revisi-modul-p04.docx` | `P04_cek_awal.sql`, `P04_pulihkan_p3.sql`, `P04_cek_mandiri.sql` |
 
-Sebelum dibagikan, sesuaikan data contoh di `P04_pulihkan_p3.sql` dengan modul praktikum 3.
-Ketiga berkas sudah diuji pada MariaDB 10.11.14.
+Sebelum dibagikan, sesuaikan baris bertanda `SESUAIKAN P2` (nama produk, harga, panjang `category_name`) dengan modul praktikum 2.
+
+Semua berkas sudah diuji pada MariaDB 10.11.14, termasuk alur lengkap: pulihkan P2 → praktikum 3 → cek awal praktikum 4.

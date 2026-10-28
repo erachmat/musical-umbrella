@@ -67,6 +67,32 @@ SELECT 'unit_price bertipe DECIMAL(12,2) NOT NULL',
               AND COLUMN_TYPE = 'decimal(12,2)'
               AND IS_NULLABLE = 'NO'),
      'OK', 'CEK'),
+  'Jika CEK dan baris pertama OK: panggil dosen'
+UNION ALL
+SELECT 'sku memiliki indeks unik (langkah C praktikum 3)',
+  IF(EXISTS(SELECT 1 FROM information_schema.STATISTICS s
+            WHERE s.TABLE_SCHEMA = DATABASE() AND s.TABLE_NAME = 'products'
+              AND s.NON_UNIQUE = 0 AND s.COLUMN_NAME = 'sku'
+              AND NOT EXISTS (SELECT 1 FROM information_schema.STATISTICS s2
+                              WHERE s2.TABLE_SCHEMA = s.TABLE_SCHEMA
+                                AND s2.TABLE_NAME   = s.TABLE_NAME
+                                AND s2.INDEX_NAME   = s.INDEX_NAME
+                                AND s2.COLUMN_NAME <> 'sku')),
+     'OK', 'BELUM'),
+  'Jika BELUM: jalankan P04_pulihkan_p3.sql, lalu cek lagi'
+UNION ALL
+SELECT 'Struktur customers sesuai praktikum 3',
+  IF((SELECT COUNT(*) FROM information_schema.COLUMNS
+      WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'customers'
+        AND ((COLUMN_NAME = 'customer_id' AND COLUMN_TYPE LIKE 'int%unsigned'
+              AND IS_NULLABLE = 'NO' AND COLUMN_KEY = 'PRI')
+          OR (COLUMN_NAME = 'full_name' AND COLUMN_TYPE = 'varchar(100)'
+              AND IS_NULLABLE = 'NO')
+          OR (COLUMN_NAME = 'email' AND COLUMN_TYPE = 'varchar(160)'
+              AND IS_NULLABLE = 'YES')
+          OR (COLUMN_NAME = 'created_at' AND COLUMN_TYPE = 'date'
+              AND IS_NULLABLE = 'NO'))) = 4,
+     'OK', 'CEK'),
   'Jika CEK dan baris pertama OK: panggil dosen';
 
 -- ---------------------------------------------------------------------

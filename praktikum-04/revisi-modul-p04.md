@@ -28,7 +28,8 @@ Selain itu, pemeriksaan database (menit 0–10) di modul lama biasanya tidak sem
 
 ## Hal yang perlu dosen sesuaikan sebelum membagikan berkas
 
-- Pada `P04_pulihkan_p3.sql`, sesuaikan nama produk, harga, panjang `VARCHAR`, tipe `stock_qty`, dan data pelanggan dengan **modul praktikum 3**. Nilai yang ada sekarang disusun dari isi modul praktikum 4 saja (kategori 1 Minuman dan 2 Roti, produk P01–P03 dengan stok 20, 15, 30, tiga pelanggan `example.com`).
+- `P04_pulihkan_p3.sql` sudah mengikuti modul praktikum 3: struktur `products` dan `customers`, tiga pelanggan Rani, Bima (email `NULL`), dan Nisa, serta indeks unik `sku`. Indeks unik hanya ditambahkan jika belum ada dan tidak ada SKU ganda. Yang masih berupa contoh adalah panjang `category_name`, nama produk, dan harga P01–P03, karena ketiganya berasal dari praktikum 2. Baris tersebut ditandai `SESUAIKAN P2`.
+- `P04_cek_awal.sql` juga memeriksa indeks unik `sku` dan struktur `customers` dari praktikum 3.
 - Jika lab memakai nama database berbeda untuk setiap mahasiswa, mahasiswa cukup mengganti satu baris `USE` di bagian atas setiap berkas.
 - Ketiga berkas sudah diuji pada MariaDB 10.11.14 (versi yang sama dengan gambar di modul). Query memakai `information_schema` yang juga tersedia di MariaDB 10.4 (XAMPP) dan MySQL 8.0.16 ke atas.
 
