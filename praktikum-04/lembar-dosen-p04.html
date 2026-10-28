@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Lembar Dosen P4</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 8.6pt; line-height: 1.32; color: #111; margin: 0; }
+  h1 { font-size: 13pt; margin: 0; }
+  .sub { font-size: 8.6pt; color: #333; margin: 1mm 0 0; }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.6pt solid #111; padding-bottom: 1.6mm; margin-bottom: 2.4mm; }
+  .isian { font-size: 8.6pt; text-align: right; line-height: 1.7; white-space: nowrap; padding-left: 4mm; }
+  h2 { font-size: 9.4pt; margin: 2.6mm 0 1.2mm; text-transform: uppercase; letter-spacing: .3pt; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: .6pt solid #555; padding: 1mm 1.4mm; vertical-align: top; text-align: left; }
+  th { background: #e6e6e6; font-size: 8.2pt; }
+  td.jam { white-space: nowrap; font-weight: bold; width: 17mm; }
+  tr.demo td { background: #f3f3f3; }
+  code { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 7.9pt; }
+  .proj { font-style: italic; }
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin: .3mm 0; }
+  .cols { display: flex; gap: 4mm; }
+  .cols > div { flex: 1; }
+  .box { border: .8pt solid #111; padding: 1.6mm 2.2mm; }
+  .cek { list-style: none; padding-left: 0; }
+  .cek li::before { content: "☐  "; }
+  .kutip { border-left: 2pt solid #111; padding: .8mm 2.4mm; margin: 0; }
+  .kaki { margin-top: 2.4mm; border-top: .8pt solid #111; padding-top: 1.4mm; font-size: 8.2pt; }
+  b.inti { font-size: 8.8pt; }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div>
+    <h1>Praktikum 4 · Constraint dan Foreign Key</h1>
+    <p class="sub">DM099 Perancangan Basis Data · Lembar pegangan dosen · Waktu efektif 75 menit (07.15–08.30)</p>
+  </div>
+  <div class="isian">Tanggal: ____________<br>Kelas/Ruang: ____________</div>
+</div>
+
+<div class="cols">
+  <div class="box">
+    <b>Malam sebelumnya</b>
+    <ul class="cek">
+      <li>Unggah 3 berkas SQL ke LMS / folder lab / flashdisk</li>
+      <li>Siapkan teks proyektor (kolom miring di tabel bawah)</li>
+      <li>Tentukan batas waktu laporan: ____________</li>
+    </ul>
+  </div>
+  <div class="box">
+    <b>Sebelum 07.00 di komputer dosen</b>
+    <ul class="cek">
+      <li>Buat database demo <code>pbd_demo_p04</code></li>
+      <li>Ganti <code>USE</code>, jalankan <code>pulihkan_p3</code> lalu <code>cek_awal</code></li>
+      <li>Semua STATUS harus OK (sekaligus uji skrip di XAMPP lab)</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Alur kelas</h2>
+<table>
+  <tr><th>Jam</th><th style="width:50%">Dosen <span style="font-weight:normal">(<i>miring</i> = teks proyektor)</span></th><th>Mahasiswa</th></tr>
+  <tr>
+    <td class="jam">07.00–07.15</td>
+    <td><span class="proj">"Sudah absen? Buka phpMyAdmin → tab SQL → jalankan <code>P04_cek_awal.sql</code>."</span> Absen sambil keliling melihat layar.</td>
+    <td>Buka .sql di Notepad, Ctrl+A, tempel ke tab SQL, <b>ganti nama database di baris <code>USE</code></b>, Go. Screenshot = <b>Bukti 1</b>.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.15–07.20</td>
+    <td>Umumkan: (1) langkah A–B sudah lewat cek awal; (2) latihan 1, 2, 3, 5 + refleksi dikerjakan di rumah; (3) jalankan <code>cek_mandiri</code> dulu sebelum memanggil dosen. Jelaskan singkat FK dan CHECK.</td>
+    <td>STATUS belum OK → jalankan <code>P04_pulihkan_p3.sql</code>, lalu cek awal lagi.</td>
+  </tr>
+  <tr class="demo">
+    <td class="jam">07.20–07.25</td>
+    <td><b>Demo C</b> di <code>pbd_demo_p04</code>: <code>SHOW CREATE TABLE</code> → ALTER FK → ALTER CHECK → <code>SHOW CREATE TABLE</code> lagi. Tunjukkan bedanya.</td>
+    <td>Menonton.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.25–07.40</td>
+    <td><span class="proj">"Sekarang: Langkah C. Target selesai 07.40."</span> Keliling.</td>
+    <td>Langkah C. Ambil <b>Bukti 2</b>.</td>
+  </tr>
+  <tr class="demo">
+    <td class="jam">07.40–07.45</td>
+    <td><b>Demo D</b>: INSERT kategori 3 + P04, lalu Uji 1 dan Uji 2. <b>Baca pesan error bersama</b>: tunjukkan nama constraint di pesan.</td>
+    <td>Menonton.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.45–08.10</td>
+    <td><span class="proj">"Sekarang: Langkah D. Uji 1 dan Uji 2 dijalankan terpisah. Target 08.10."</span> Jam 08.00: yang belum sampai Uji 1 angkat tangan.</td>
+    <td>Langkah D. Ambil <b>Bukti 3</b>.</td>
+  </tr>
+  <tr>
+    <td class="jam">08.10–08.25</td>
+    <td><span class="proj">"Sekarang: Langkah E. Jalankan <code>P04_cek_mandiri.sql</code>. Semua harus OK."</span></td>
+    <td>Langkah E. Simpan <code>DM099_P04_kodepraktik.sql</code> dan <code>_uji.sql</code>.</td>
+  </tr>
+  <tr>
+    <td class="jam">08.25–08.30</td>
+    <td><b>Waktu cadangan.</b> <span class="proj">"Sudah 8/8 OK? Kerjakan latihan nomor 4."</span></td>
+    <td>Yang tertinggal menyelesaikan E; yang selesai mengerjakan nomor 4.</td>
+  </tr>
+  <tr>
+    <td class="jam">08.30–08.40</td>
+    <td>Pengumuman (di bawah).</td>
+    <td>Simpan berkas, matikan komputer, rapikan meja.</td>
+  </tr>
+</table>
+
+<h2>Pengumuman 08.30</h2>
+<p class="kutip">"Laporan dikumpulkan paling lambat <b>______________</b>. Isinya Bukti 1–3, lima jawaban latihan mandiri, dan tiga refleksi. Nomor 1, 2, 3, 5 dan refleksi dikerjakan di rumah. Jika nomor 4 belum sempat dijalankan, tulis query-nya saja. Pastikan dua berkas .sql tersimpan sebelum komputer dimatikan. Minggu depan kita mulai ERD."</p>
+
+<h2>Jika ada masalah</h2>
+<table>
+  <tr><th style="width:44%">Kejadian</th><th>Tindakan</th></tr>
+  <tr><td>Jam 07.40 lebih dari ⅓ kelas belum selesai C</td><td>Mundurkan demo D 5 menit (pakai waktu cadangan).</td></tr>
+  <tr><td>Banyak data P3 hilang / lab dibersihkan</td><td>Semua jalankan <code>P04_pulihkan_p3.sql</code> (±1 menit).</td></tr>
+  <tr><td>Cek awal: <b>MASALAH</b> (produk tanpa kategori / harga negatif)</td><td><b>Datangi mahasiswa itu.</b> Jangan jalankan ALTER dulu.</td></tr>
+  <tr><td>Error <code>Unknown database</code></td><td>Baris <code>USE</code> belum diganti.</td></tr>
+  <tr><td>Cek mandiri baris 8: <b>MASALAH</b> (baris uji 98/99 tersimpan)</td><td>Server tidak menjalankan CHECK. Catat versi server; jangan hapus baris.</td></tr>
+  <tr><td>Proyektor / komputer dosen bermasalah</td><td>Mahasiswa tetap jalan: modul + kolom "tindakan" di cek awal dan cek mandiri.</td></tr>
+</table>
+
+<div class="kaki">
+  <b>Berkas:</b> <code>P04_cek_awal.sql</code> (07.00) · <code>P04_pulihkan_p3.sql</code> (hanya jika cek awal belum OK) · <code>P04_cek_mandiri.sql</code> (08.10)<br>
+  <b class="inti">Kunci hari ini: 15 menit pertama jangan habis untuk menunggu. Cek awal harus sudah jalan sebelum 07.15.</b>
+</div>
+
+</body>
+</html>
