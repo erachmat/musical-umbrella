@@ -24,20 +24,19 @@ Revisi ini tidak mengubah SQL di modul. Yang diubah adalah jadwal, beberapa penj
 5. **Latihan mandiri nomor 1, 2, 3, 5 dan refleksi dikerjakan di rumah.** Nomor 4 menjadi tantangan di lab bagi yang selesai lebih dulu.
 6. **Tiga penjelasan teknis ditambahkan** (lihat Bagian 2): baris `USE`, indeks tambahan untuk foreign key, dan alasan FK tanpa `ON UPDATE`/`ON DELETE`.
 
-## Keputusan yang perlu dosen tetapkan
+## Keputusan dosen
 
-**ERD individu atau kelompok?** Langkah A.7 menyebut "ERD buatan Anda", sedangkan bagian 10 menyebut "ERD dan laporan dapat dikerjakan dalam kelompok". Revisi ini memakai pilihan berikut, yang dapat diganti:
+- **ERD dikerjakan secara individu.** Bukti 1 berupa ERD milik setiap mahasiswa. Laporan tetap dapat dikerjakan berkelompok sesuai bagian 10 modul, tetapi setiap anggota melampirkan ERD dan bukti dari komputernya sendiri.
+- **Nama berkas SQL tetap mengikuti modul:** `P05_normal.sql` dan `P05_uji_penolakan.sql`.
 
-> ERD digambar **per mahasiswa** saat absensi dan menjadi Bukti 1 masing-masing. Laporan mengikuti arahan dosen (individu atau kelompok 3–4 orang).
-
-Jika ERD dikerjakan berkelompok, ganti kalimat pada langkah A.7 di Bagian 2 menjadi: "Bukti 1 berupa satu ERD per kelompok. Setiap anggota tetap menyalin ERD tersebut ke laporannya."
+Modul hasil revisi lengkap tersedia di `praktikum-05/modul/DM099_Praktikum_5_ERD_ke_Tabel.md` beserta folder `gambar/`. Karena tabel berkas pendukung ditambahkan di bagian 2, penomoran tabel di modul revisi bergeser: Tabel 1 berkas pendukung, Tabel 2 aturan katalog, Tabel 3 kegiatan, Tabel 4 lembar kerja, Tabel 5 kendala, Tabel 6 istilah.
 
 ## Keselarasan dengan praktikum 2–4
 
 | Hal | Praktikum 2–4 | Praktikum 5 sekarang | Saran |
 |---|---|---|---|
 | Sapaan | "kamu" | "Anda" | Find & Replace: `Anda` → `kamu`, lalu periksa awal kalimat menjadi `Kamu` |
-| Nama berkas | `DM099_P04_kodepraktik.sql`, `_uji.sql`, `_laporan.pdf` | `P05_normal.sql`, `P05_uji_penolakan.sql` | Pakai pola lama (lihat teks pengganti bagian 10) |
+| Nama berkas | `DM099_P04_kodepraktik.sql`, `_uji.sql`, `_laporan.pdf` | `P05_normal.sql`, `P05_uji_penolakan.sql` | Tetap memakai nama di modul (keputusan dosen) |
 | Baris `USE` | Ada di setiap blok SQL | Tidak ada | Tambahkan catatan (lihat teks pengganti bagian 6) |
 | Lembar kerja | Ada baris kode praktik/komputer, alamat phpMyAdmin, akses lokal/LAN | Tidak ada | Tambahkan tiga baris (lihat teks pengganti bagian 8) |
 | Judul bagian | Alur kegiatan, Aturan kerja, Penanganan kendala umum, Hasil yang dikumpulkan, Daftar pemeriksaan sebelum selesai, Istilah penting, Referensi resmi | Pembagian waktu, Ketentuan kerja, Masalah yang sering muncul, Berkas yang dikumpulkan, Pemeriksaan sebelum mengumpulkan, Glosarium, Referensi | Opsional, ganti agar seragam |
@@ -147,13 +146,19 @@ Tambahkan kalimat berikut sebelum subjudul Refleksi:
 
 > Lembar kerja dan refleksi dikerjakan di rumah sebagai bagian dari laporan.
 
-## Bagian 10. Berkas yang dikumpulkan: ganti daftar
+## Bagian 10. Berkas yang dikumpulkan
 
-> 1. `DM099_P05_kodepraktik.sql` berisi pembuatan tabel, pemeriksaan, dan pengisian data valid. Awali dengan `USE` dan tambahkan komentar agar urutan pemakaiannya jelas.
-> 2. `DM099_P05_kodepraktik_uji.sql` berisi tiga INSERT untuk uji penolakan. Beri komentar agar setiap INSERT dijalankan secara terpisah.
-> 3. `DM099_P05_kodepraktik_laporan.pdf` atau format dari dosen, berisi ERD, Bukti 1 sampai 3, lembar kerja, lima jawaban latihan, tiga refleksi, dan catatan kendala.
->
+Ganti kalimat "Jika memakai USE dalam berkas SQL, tuliskan nama database sesuai alokasi Anda." dengan:
+
+> Awali setiap berkas SQL dengan `USE` dan tuliskan nama database sesuai alokasimu.
+
+Tambahkan setelah daftar berkas:
+
 > Dua berkas SQL disimpan di lokasi yang ditentukan dosen sebelum komputer lab dimatikan. Laporan dikumpulkan paling lambat pada batas waktu yang diumumkan dosen di akhir sesi.
+
+Ganti paragraf terakhir ("ERD dan laporan dapat dikerjakan dalam kelompok...") dengan:
+
+> ERD dikerjakan secara individu. Laporan dapat dikerjakan dalam kelompok beranggotakan 3 sampai 4 mahasiswa sesuai arahan dosen; setiap anggota tetap melampirkan ERD dan bukti dari komputernya sendiri. Setiap anggota harus dapat menunjukkan tabel dan menjelaskan satu pemetaan atribut saat demonstrasi.
 
 ## Bagian 11. Pemeriksaan sebelum mengumpulkan: tambahkan butir
 
@@ -163,7 +168,6 @@ Tambahkan kalimat berikut sebelum subjudul Refleksi:
 
 ## Sebelum hari praktikum
 
-- Tetapkan ERD individu atau kelompok (Bagian 1).
 - Letakkan ketiga berkas SQL di folder bersama lab, LMS, atau flashdisk.
 - Siapkan kertas kosong untuk mahasiswa yang tidak membawa kertas.
 
@@ -176,7 +180,7 @@ Tambahkan kalimat berikut sebelum subjudul Refleksi:
 | 07.20 | **Sekarang: Langkah B (CREATE products_v2). Target selesai 07.40.** |
 | 07.40 | **Sekarang: Langkah C (struktur + 2 produk latihan). Target selesai 07.55.** |
 | 07.55 | **Sekarang: Langkah D. Tiga uji, dijalankan satu per satu. Target selesai 08.15.** |
-| 08.15 | **Sekarang: Langkah E. JOIN + `P05_cek_mandiri.sql`, simpan dua berkas SQL.** |
+| 08.15 | **Sekarang: Langkah E. JOIN + `P05_cek_mandiri.sql`, simpan `P05_normal.sql` dan `P05_uji_penolakan.sql`.** |
 | 08.25 | **Sudah semua OK? Kerjakan latihan nomor 4. Belum? Selesaikan langkah E.** |
 | 08.30 | **Simpan berkas. Pengumuman laporan dan tugas.** |
 

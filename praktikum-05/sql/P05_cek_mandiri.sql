@@ -28,7 +28,7 @@ SELECT '1. products_v2 tersedia dan memakai InnoDB' AS cek,
      'OK', 'BELUM') AS status,
   'Jika BELUM: jalankan CREATE TABLE di langkah B' AS tindakan
 UNION ALL
-SELECT '2. Lima kolom sesuai Tabel 1, semuanya NOT NULL',
+SELECT '2. Lima kolom sesuai Tabel 2, semuanya NOT NULL',
   IF((SELECT COUNT(*) FROM information_schema.COLUMNS
       WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'products_v2'
         AND IS_NULLABLE = 'NO'
