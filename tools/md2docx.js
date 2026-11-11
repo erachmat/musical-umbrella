@@ -244,7 +244,7 @@ for (let i = 0; i < lines.length; i++) {
 const small = (t, opts = {}) => new TextRun({ text: t, font: FONT, size: 16, color: GRAY, ...opts });
 const doc = new Document({
   creator: "DM099 Perancangan Basis Data",
-  title: "Modul Praktikum 5: Dari ERD ke Tabel",
+  title: (bodyMd.match(/\*\*(MODUL PRAKTIKUM \d+)\*\*\s*\n\s*\n?\*\*([^*]+)\*\*/) || []).slice(1).join(": ") || HEADER_TEXT,
   styles: { default: { document: { run: { font: FONT, size: BODY } } } },
   numbering: {
     config: [{

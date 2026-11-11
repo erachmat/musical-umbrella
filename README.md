@@ -14,10 +14,11 @@ Setiap praktikum memiliki pola yang sama:
 | 3. DDL, Tipe Data, dan Kunci | `praktikum-03/revisi-modul-p03.docx` | `P03_cek_awal.sql`, `P03_pulihkan_p2.sql`, `P03_cek_mandiri.sql` |
 | 4. Constraint dan Foreign Key | `praktikum-04/revisi-modul-p04.docx` + `lembar-dosen-p04.pdf` | `P04_cek_awal.sql`, `P04_pulihkan_p3.sql`, `P04_cek_mandiri.sql` |
 | 5. Dari ERD ke Tabel | **Modul revisi lengkap:** `praktikum-05/modul/DM099_Praktikum_5_ERD_ke_Tabel.docx` dan `.md` (+ `gambar/`), `revisi-modul-p05.docx`, `lembar-dosen-p05.pdf` | `P05_cek_awal.sql`, `P05_pulihkan_p4.sql`, `P05_cek_mandiri.sql` |
+| 6. Relasi Penjualan dan Detail | **Modul revisi lengkap:** `praktikum-06/modul/DM099_Praktikum_6_Relasi_Penjualan_dan_Detail.docx` dan `.md` (+ `gambar/`), `catatan-revisi-p06.md`, `lembar-dosen-p06.pdf` | `P06_cek_awal.sql`, `P06_pulihkan_p5.sql`, `P06_cek_mandiri.sql` |
 
 Semua berkas siap dibagikan. Mahasiswa hanya perlu mengganti nama database pada baris `USE`.
 
-Semua berkas sudah diuji pada MariaDB 10.11.14 dengan perintah persis dari modul, berurutan dari praktikum 2 sampai 5. Data hasil berkas pemulihan juga lolos cek mandiri praktikum sebelumnya.
+Semua berkas sudah diuji pada MariaDB 10.11.14 dengan perintah persis dari modul, berurutan dari praktikum 2 sampai 6. Data hasil berkas pemulihan juga lolos cek mandiri praktikum sebelumnya.
 
 ## Membuat ulang docx dari modul .md
 

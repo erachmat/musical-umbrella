@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Lembar Dosen P6</title>
+<style>
+  @page { size: A4; margin: 9mm 11mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "DejaVu Sans", Arial, sans-serif; font-size: 8.3pt; line-height: 1.28; color: #111; margin: 0; }
+  h1 { font-size: 13pt; margin: 0; }
+  .sub { font-size: 8.6pt; color: #333; margin: 1mm 0 0; }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.6pt solid #111; padding-bottom: 1.6mm; margin-bottom: 2.4mm; }
+  .isian { font-size: 8.6pt; text-align: right; line-height: 1.7; white-space: nowrap; padding-left: 4mm; }
+  h2 { font-size: 9.4pt; margin: 2.6mm 0 1.2mm; text-transform: uppercase; letter-spacing: .3pt; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: .6pt solid #555; padding: 1mm 1.4mm; vertical-align: top; text-align: left; }
+  th { background: #e6e6e6; font-size: 8.2pt; }
+  td.jam { white-space: nowrap; font-weight: bold; width: 17mm; }
+  tr.demo td { background: #f3f3f3; }
+  code { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 7.9pt; }
+  .proj { font-style: italic; }
+  ul { margin: 0; padding-left: 4.2mm; }
+  li { margin: .3mm 0; }
+  .cols { display: flex; gap: 4mm; }
+  .cols > div { flex: 1; }
+  .box { border: .8pt solid #111; padding: 1.6mm 2.2mm; }
+  .cek { list-style: none; padding-left: 0; }
+  .cek li::before { content: "☐  "; }
+  .kutip { border-left: 2pt solid #111; padding: .8mm 2.4mm; margin: 0; }
+  .kaki { margin-top: 2.4mm; border-top: .8pt solid #111; padding-top: 1.4mm; font-size: 8.2pt; }
+  b.inti { font-size: 8.8pt; }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div>
+    <h1>Praktikum 6 · Relasi Penjualan dan Detail</h1>
+    <p class="sub">DM099 Perancangan Basis Data · Lembar pegangan dosen · Waktu efektif 75 menit (07.15–08.30)</p>
+  </div>
+  <div class="isian">Tanggal: ____________<br>Kelas/Ruang: ____________</div>
+</div>
+
+<div class="cols">
+  <div class="box">
+    <b>Malam sebelumnya</b>
+    <ul class="cek">
+      <li>Unggah 3 berkas SQL + modul revisi (docx/PDF baru, <b>bukan</b> PDF lama)</li>
+      <li>Ingatkan: ERD <b>individu</b>, database <b>milik sendiri</b></li>
+      <li>Batas waktu laporan: ____________</li>
+    </ul>
+  </div>
+  <div class="box">
+    <b>Sebelum 07.00 di komputer dosen</b>
+    <ul class="cek">
+      <li>Database demo <code>pbd_demo_p06</code>: ganti <code>USE</code>, jalankan <code>pulihkan_p5</code> lalu <code>cek_awal</code> → semua OK</li>
+      <li>Siapkan kertas kosong untuk menggambar ERD (4 entitas)</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Alur kelas</h2>
+<table>
+  <tr><th>Jam</th><th style="width:50%">Dosen <span style="font-weight:normal">(<i>miring</i> = teks proyektor)</span></th><th>Mahasiswa</th></tr>
+  <tr>
+    <td class="jam">07.00–07.15</td>
+    <td><span class="proj">"Sudah absen? Jalankan <code>P06_cek_awal.sql</code>, lalu gambar ulang ERD (Gambar 1) di kertas = Bukti 1."</span> Absen sambil keliling.</td>
+    <td>Cek awal (ganti <code>USE</code>!). Gambar ERD sendiri-sendiri: 4 entitas, PK/FK, kunci gabungan.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.15–07.20</td>
+    <td>Umumkan: latihan 1, 2, 3, 5 + lembar kerja + refleksi di rumah; <b>jangan salin SQL dari PDF</b>. Jelaskan entitas asosiasi: <code>sale_items</code> memecah M:N penjualan–produk.</td>
+    <td>STATUS belum OK → <code>P06_pulihkan_p5.sql</code>, lalu cek awal lagi.</td>
+  </tr>
+  <tr class="demo">
+    <td class="jam">07.20–07.25</td>
+    <td><b>Demo B</b>: CREATE <code>sales</code> lalu <code>sale_items</code>. Tekankan urutan induk → anak, dan <code>PRIMARY KEY (sale_id, product_id)</code> vs UNIQUE pada <code>product_id</code> saja.</td>
+    <td>Menonton.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.25–07.40</td>
+    <td><span class="proj">"Sekarang: Langkah B. Target selesai 07.40."</span> Keliling.</td>
+    <td>Langkah B.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.40–07.55</td>
+    <td><span class="proj">"Sekarang: Langkah C. sales dulu, baru sale_items. Target 07.55."</span> Siap jawab: dua kolom bertanda <code>PRI</code> = satu PK gabungan.</td>
+    <td>SHOW CREATE TABLE, INSERT 601/602 + 3 detail. Ambil <b>Bukti 2</b>.</td>
+  </tr>
+  <tr class="demo">
+    <td class="jam">07.55–07.58</td>
+    <td><b>Demo D</b>: jalankan Uji 3 (pasangan 601,1). Tunjukkan yang menolak <code>PRIMARY</code>, dan baris valid tetap <code>quantity</code> 2.</td>
+    <td>Menonton.</td>
+  </tr>
+  <tr>
+    <td class="jam">07.58–08.15</td>
+    <td><span class="proj">"Sekarang: Langkah D. Lima uji, SATU PER SATU. Target 08.15."</span> Jam 08.05: yang belum sampai Uji 3 angkat tangan.</td>
+    <td>Uji 1–5 + pemeriksaan + COUNT. Ambil <b>Bukti 3</b>.</td>
+  </tr>
+  <tr>
+    <td class="jam">08.15–08.25</td>
+    <td><span class="proj">"Sekarang: Langkah E. JOIN + <code>P06_cek_mandiri.sql</code>. Semua harus OK."</span></td>
+    <td>Simpan <code>P06_normal.sql</code> dan <code>P06_uji_penolakan.sql</code>.</td>
+  </tr>
+  <tr>
+    <td class="jam">08.25–08.30</td>
+    <td><b>Waktu cadangan.</b> <span class="proj">"Sudah 12/12 OK? Kerjakan latihan nomor 4."</span></td>
+    <td>Yang tertinggal menyelesaikan E; yang selesai mengerjakan nomor 4.</td>
+  </tr>
+  <tr>
+    <td class="jam">08.30–08.40</td>
+    <td>Pengumuman (di bawah).</td>
+    <td>Simpan berkas, matikan komputer, rapikan meja.</td>
+  </tr>
+</table>
+
+<h2>Pengumuman 08.30</h2>
+<p class="kutip">"Laporan dikumpulkan paling lambat <b>______________</b>. Isinya ERD, Bukti 1–3, lembar kerja, lima jawaban latihan, tiga refleksi, dan catatan kendala. Nomor 1, 2, 3, 5, lembar kerja, dan refleksi dikerjakan di rumah. Jika nomor 4 belum sempat dijalankan, tulis query-nya saja. Pastikan dua berkas .sql tersimpan dan diawali <code>USE</code> sebelum komputer dimatikan."</p>
+
+<h2>Jika ada masalah</h2>
+<table>
+  <tr><th style="width:44%">Kejadian</th><th>Tindakan</th></tr>
+  <tr><td>Error 1064 pada SQL yang tampak benar</td><td>Disalin dari PDF lama (ada karakter tak terlihat). Pakai berkas <code>.sql</code> / modul revisi.</td></tr>
+  <tr><td>Error <code>Unknown column 'customer_name'</code></td><td>Memakai PDF lama. Kolom yang benar <code>full_name</code>.</td></tr>
+  <tr><td>Pelanggan 1–2 / produk 1–3 / <code>products_v2</code> belum ada</td><td><code>P06_pulihkan_p5.sql</code> (±1 menit). Jangan INSERT induk sendiri.</td></tr>
+  <tr><td>Hanya Uji 1 yang muncul pesannya</td><td>Kelima INSERT ditempel sekaligus; phpMyAdmin berhenti di error pertama. Jalankan satu per satu.</td></tr>
+  <tr><td>Uji 4/5 ditolak <code>PRIMARY</code>, bukan CHECK</td><td>Pasangan (601,3)/(602,2) sudah tersimpan. Cek mandiri baris 11; jangan hapus sendiri.</td></tr>
+  <tr><td>Cek mandiri baris 11: <b>MASALAH</b></td><td>Aturan tidak bekerja. Catat versi dan SHOW CREATE TABLE; jangan hapus baris.</td></tr>
+</table>
+
+<div class="kaki">
+  <b>Berkas:</b> <code>P06_cek_awal.sql</code> (07.00) · <code>P06_pulihkan_p5.sql</code> (hanya jika cek awal belum OK) · <code>P06_cek_mandiri.sql</code> (08.15)<br>
+  <b class="inti">Kunci hari ini: semua SQL dari berkas .sql atau modul revisi, bukan dari PDF lama, dan lima uji dijalankan satu per satu.</b>
+</div>
+
+</body>
+</html>
