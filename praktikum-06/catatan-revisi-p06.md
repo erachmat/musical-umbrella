@@ -23,9 +23,9 @@ Seluruh 13 blok SQL modul revisi sudah dijalankan berurutan pada MariaDB 10.11.1
 - Sapaan "kamu", keterangan Tabel 1–6, baris identitas pada lembar kerja, daftar pemeriksaan dengan ☐.
 - ERD individu; nama berkas tetap `P06_normal.sql` dan `P06_uji_penolakan.sql`.
 
-## Keputusan yang diambil (dapat diubah)
+## Keputusan yang diambil
 
-- **Database milik sendiri.** Modul lama mengizinkan "alokasi kelompok". Jika beberapa mahasiswa memakai satu database, mahasiswa kedua dan seterusnya akan mendapati tabel sudah ada dan INSERT 601/602 ditolak sebagai duplikat, sehingga Bukti 2 dan 3 tidak dapat dibuat sendiri.
+- **Database milik sendiri** (dikonfirmasi dosen). Modul lama mengizinkan "alokasi kelompok". Jika beberapa mahasiswa memakai satu database, mahasiswa kedua dan seterusnya akan mendapati tabel sudah ada dan INSERT 601/602 ditolak sebagai duplikat, sehingga Bukti 2 dan 3 tidak dapat dibuat sendiri.
 - **Penjelasan indeks** ditambahkan di langkah C: dua kolom bertanda `PRI` pada `sale_items`, indeks otomatis `fk_sale_items_product`, dan `MUL` pada `sales.customer_id`.
 - **Pemeriksaan jumlah tabel lama** yang sebelumnya hanya disebut dalam teks ("Gunakan COUNT(*)") kini dimasukkan ke blok SQL pemeriksaan langkah D.
 
