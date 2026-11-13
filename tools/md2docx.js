@@ -141,7 +141,11 @@ function cover(block) {
 }
 
 // ---- Isi ----
-const [coverMd, bodyMd] = md.split(/\n---\n/);
+// Sampul hanya dibuat jika ada garis "---"; tanpa garis, seluruh berkas dianggap isi.
+const parts = md.split(/\n---\n/);
+const hasCover = parts.length > 1;
+const coverMd = hasCover ? parts[0] : "";
+const bodyMd = hasCover ? parts.slice(1).join("\n---\n") : md;
 const lines = bodyMd.split("\n");
 const children = [];
 let listInstance = 0, inList = false;
@@ -225,6 +229,24 @@ for (let i = 0; i < lines.length; i++) {
     }));
     continue;
   }
+  if ((m = ln.match(/^%%% (.*)/))) {
+    children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 240 },
+      children: inline(m[1], { size: 20, color: GRAY }) }));
+    continue;
+  }
+  if ((m = ln.match(/^%% (.*)/))) {
+    children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 80 },
+      children: inline(m[1], { size: 34, bold: true, color: NAVY }) }));
+    continue;
+  }
+  if ((m = ln.match(/^- (?!☐)(.*)/))) {
+    children.push(new Paragraph({
+      numbering: { reference: "poin", level: 0 },
+      alignment: AlignmentType.JUSTIFIED, spacing: { before: 0, after: 80, line: 276 },
+      children: inline(m[1]),
+    }));
+    continue;
+  }
   if ((m = ln.match(/^\*\*(MODUL PRAKTIKUM \d+)\*\*$/))) {
     children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 60 },
       children: [new TextRun({ text: m[1], font: FONT, size: 30, bold: true, color: NAVY })] }));
@@ -237,7 +259,10 @@ for (let i = 0; i < lines.length; i++) {
   if (/^\*\*[^*]+\*\*$/.test(ln)) { children.push(para(ln, { keepNext: true, align: AlignmentType.LEFT })); continue; }
   // paragraf biasa; daftar bernomor yang diselingi blok kode/gambar tetap berlanjut
   if (!/^\d+\. /.test(lines.slice(i + 1).find(l => l.trim() && !l.startsWith("```") && !l.startsWith("!") && !l.startsWith("*Gambar")) || "")) inList = false;
-  children.push(para(ln));
+  // kalimat pengantar menempel ke tabel, kode, atau gambar di bawahnya
+  const next = lines.slice(i + 1).find(l => l.trim());
+  const nempel = /:\s*$/.test(ln) || (next && (next.startsWith("```") || next.startsWith("|") || next.startsWith("![")));
+  children.push(para(ln, { keepNext: !!nempel }));
 }
 
 // ---- Dokumen ----
@@ -248,6 +273,10 @@ const doc = new Document({
   styles: { default: { document: { run: { font: FONT, size: BODY } } } },
   numbering: {
     config: [{
+      reference: "poin",
+      levels: [{ level: 0, format: LevelFormat.BULLET, text: "\u2022", alignment: AlignmentType.LEFT,
+        style: { paragraph: { indent: { left: 400, hanging: 260 } }, run: { font: FONT, size: BODY } } }],
+    }, {
       reference: "angka",
       levels: [{ level: 0, format: LevelFormat.DECIMAL, text: "%1.", alignment: AlignmentType.LEFT,
         style: { paragraph: { indent: { left: 400, hanging: 400 } }, run: { font: FONT, size: BODY } } }],
@@ -256,7 +285,7 @@ const doc = new Document({
   sections: [{
     properties: {
       page: { size: { width: PAGE_W, height: 16838 }, margin: { top: 1247, bottom: 1247, left: MARGIN, right: MARGIN, header: 567, footer: 567 } },
-      titlePage: true,
+      titlePage: hasCover,
     },
     headers: {
       default: new Header({ children: [new Paragraph({
@@ -273,7 +302,7 @@ const doc = new Document({
       })] }),
       first: new Footer({ children: [new Paragraph({ children: [] })] }),
     },
-    children: [...cover(coverMd), ...children],
+    children: [...(hasCover ? cover(coverMd) : []), ...children],
   }],
 });
 

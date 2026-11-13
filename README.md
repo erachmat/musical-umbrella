@@ -26,3 +26,13 @@ Semua berkas sudah diuji pada MariaDB 10.11.14 dengan perintah persis dari modul
 cd praktikum-05/modul
 NODE_PATH=$(npm root -g) node ../../tools/md2docx.js DM099_Praktikum_5_ERD_ke_Tabel.md DM099_Praktikum_5_ERD_ke_Tabel.docx "DM099 Perancangan Basis Data · Praktikum 5: Dari ERD ke Tabel"
 ```
+
+## UTS DM099: contoh jawaban
+
+| Berkas | Isi |
+|---|---|
+| `uts-pbd/Contoh_Jawaban_UTS_PBD_DM099.docx` (dan `contoh-jawaban-uts-pbd.md`) | Contoh jawaban enam soal UTS dengan kasus Toko Saku, usulan rubrik per soal, kesalahan yang sering muncul, dan catatan untuk penyusun soal |
+| `uts-pbd/sql/uts_contoh_tokosaku.sql` | SQL lengkap soal 5: enam tabel, data contoh, dan query pemeriksaan (diuji pada MariaDB 10.11.14) |
+| `uts-pbd/gambar/gambar-1-erd.png` | ERD Crow's Foot untuk soal 4 |
+
+`tools/md2docx.js` kini juga dapat membuat dokumen tanpa sampul (berkas `.md` tanpa garis `---`), dengan daftar poin dan judul tengah (`%%`, `%%%`).
